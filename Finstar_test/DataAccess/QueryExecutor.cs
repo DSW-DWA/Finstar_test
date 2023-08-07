@@ -2,6 +2,7 @@
 using Finstar_test.Utils;
 using System.Data;
 using Microsoft.Data.SqlClient;
+using log4net;
 
 namespace Finstar_test.DataAccess
 {
@@ -21,6 +22,7 @@ namespace Finstar_test.DataAccess
                         adapter.Fill(dataTable);
                     }
 
+                    connection.Close();
                     return new QueryResult(dataTable);
                 }
             }
