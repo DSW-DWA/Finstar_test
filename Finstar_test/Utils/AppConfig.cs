@@ -17,8 +17,6 @@ namespace Finstar_test.Utils
         {
             string currentProject = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
             ConnectionString = ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
-            /*InputFilePath = Path.Combine(currentProject, ConfigurationManager.AppSettings["InputFileName"]);
-            OutputFilePath = Path.Combine(currentProject, ConfigurationManager.AppSettings["OutputFileName"]);*/
             InputFilePath = ConfigurationManager.AppSettings["InputFilePath"];
             OutputFilePath = ConfigurationManager.AppSettings["OutputFilePath"];
         }

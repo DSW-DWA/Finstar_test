@@ -5,19 +5,7 @@ using Finstar_test.Utils;
 
 try
 {
-    if ( args.Length == 0 )
-    {
-        AppConfig.Load();
-    } else
-    {
-        var userPath = args[0];
-
-        if ( !File.Exists(userPath) )
-        {
-            throw new FileNotFoundException($"{userPath} File not found");
-        }
-        AppConfig.Load();
-    };
+    AppConfig.Load();
 
     var sqlQuery = FileService.ReadQueryFromFile(AppConfig.InputFilePath);
     QueryResult result = QueryExecutor.ExecuteQuery(sqlQuery);

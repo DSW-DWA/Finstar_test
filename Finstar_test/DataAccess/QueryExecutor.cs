@@ -1,7 +1,7 @@
 ﻿using Finstar_test.Models;
 using Finstar_test.Utils;
 using System.Data;
-using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 
 namespace Finstar_test.DataAccess
 {
