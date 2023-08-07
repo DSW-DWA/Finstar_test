@@ -2,7 +2,7 @@
 
 namespace Finstar_test.Models
 {
-    class QueryResult
+    public class QueryResult
     {
         public DataTable ResultTable { get; }
 

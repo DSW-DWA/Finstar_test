@@ -5,11 +5,11 @@ using Microsoft.Data.SqlClient;
 
 namespace Finstar_test.DataAccess
 {
-    class QueryExecutor
+    public class QueryExecutor
     {
-        public static QueryResult ExecuteQuery(string query)
+        public static QueryResult ExecuteQuery(string query, string connectionString)
         {
-            using (var connection = new DatabaseContext(AppConfig.ConnectionString).CreateConnection())
+            using (var connection = new DatabaseContext(connectionString).CreateConnection())
             {
                 connection.Open();
 

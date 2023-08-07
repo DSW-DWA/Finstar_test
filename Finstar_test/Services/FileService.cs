@@ -3,7 +3,7 @@ using System.Data;
 
 namespace Finstar_test.Services
 {
-    class FileService
+    public class FileService
     {
         public static string ReadQueryFromFile(string filePath)
         {

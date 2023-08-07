@@ -2,7 +2,7 @@
 
 namespace Finstar_test.DataAccess
 {
-    class DatabaseContext
+    public class DatabaseContext
     {
         private string _connectionString;
 
