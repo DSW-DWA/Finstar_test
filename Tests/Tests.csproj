@@ -21,7 +21,7 @@
     <PackageReference Include="coverlet.collector" Version="3.1.2" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Finstar_test\Finstar_test.csproj" />
+    <ProjectReference Include="..\Finstar_test\DataSQLExecutor.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Update="Data\Database.mdf">

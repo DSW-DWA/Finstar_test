@@ -10,7 +10,7 @@ namespace Tests
         {
             // Arrange
             var testPath = $"{Environment.CurrentDirectory}\\example_input.txt";
-            var expectedQuery = "SELECT P.ProductName, C.CategoryName\r\nFROM Products P\r\nLEFT JOIN ProductCategory PC ON P.ProductID = PC.ProductID\r\nLEFT JOIN Categories C ON PC.CategoryID = C.CategoryID;";
+            var expectedQuery = File.ReadAllText(testPath);
 
             // Act
             var result =  FileService.ReadQueryFromFile(testPath);
