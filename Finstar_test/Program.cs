@@ -47,29 +47,28 @@ namespace HelloWorld
                 Console.WriteLine("An error occurred: " + ex.Message);
                 _log.Error("An error occurred: " + ex.Message);
             }
-
-            static void ValidateArguments(CommandLineOptions options)
+        }
+        private static void ValidateArguments(CommandLineOptions options)
+        {
+            if (options.InputPath == null || options.OutputPath == null)
             {
-                if (options.InputPath == null || options.OutputPath == null)
-                {
-                    throw new ArgumentException("Arguments input and output must not be null.");
-                }
-
-                if (!File.Exists(options.InputPath))
-                {
-                    throw new FileNotFoundException("Input file doesn't exist.", options.InputPath);
-                }
-
-                if (!Path.GetExtension(options.InputPath).Equals(".txt", StringComparison.OrdinalIgnoreCase))
-                {
-                    throw new ArgumentException("Input file must have the extension '.txt'.", nameof(options.InputPath));
-                }
+                throw new ArgumentException("Arguments input and output must not be null.");
             }
 
-            static string GetConnectionStringFromConfig()
+            if (!File.Exists(options.InputPath))
             {
-                return ConfigurationManager.ConnectionStrings["SqlConnection"]?.ConnectionString ?? throw new ConfigurationException("Connection string not found in the configuration.");
+                throw new FileNotFoundException("Input file doesn't exist.", options.InputPath);
             }
+
+            if (!Path.GetExtension(options.InputPath).Equals(".txt", StringComparison.OrdinalIgnoreCase))
+            {
+                throw new ArgumentException("Input file must have the extension '.txt'.", nameof(options.InputPath));
+            }
+        }
+
+        private static string GetConnectionStringFromConfig()
+        {
+            return ConfigurationManager.ConnectionStrings["SqlConnection"]?.ConnectionString ?? throw new ConfigurationException("Connection string not found in the configuration.");
         }
     }
 }
