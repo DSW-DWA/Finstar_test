@@ -27,24 +27,20 @@ namespace HelloWorld
                         var connectionString = GetConnectionStringFromConfig();
                         var result = QueryExecutor.ExecuteQuery(sqlQuery, connectionString);
                         FileService.WriteResultToCsv(result, o.OutputPath);
-                        Console.WriteLine("Query executed successfully.");
                         _log.Info("Query executed successfully.");
 
                     });
             }
             catch (FileNotFoundException ex)
             {
-                Console.WriteLine("File not found: " + ex.Message);
                 _log.Error("File not found: " + ex.Message);
             }
             catch (ArgumentException ex)
             {
-                Console.WriteLine("Invalid argument: " + ex.Message);
                 _log.Error("Invalid argument: " + ex.Message);
             }
             catch (Exception ex)
             {
-                Console.WriteLine("An error occurred: " + ex.Message);
                 _log.Error("An error occurred: " + ex.Message);
             }
         }
